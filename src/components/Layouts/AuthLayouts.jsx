@@ -3,7 +3,7 @@ import { LoginForm, RegisterForm } from "../Fragments/Form";
 
 export const LoginLayout = () => {
   return (
-    <div className="text-white w-full flex flex-col items-center">
+    <div className="text-white w-full flex flex-col items-center min-h-[70vh] py-16 justify-center">
       <div className="w-full max-w-sm flex flex-col gap-y-2">
         <h1 className="font-bold text-3xl">Login</h1>
         <p className="text-slate-300 mb-2">Hello! please login with your credentials</p>
@@ -21,7 +21,7 @@ export const LoginLayout = () => {
 
 export const RegisterLayout = () => {
   return (
-    <div className="text-white w-full flex flex-col items-center">
+    <div className="text-white w-full flex flex-col items-center min-h-[70vh] py-16 justify-center">
       <div className="w-full max-w-sm flex flex-col gap-y-2">
         <h1 className="font-bold text-3xl">Register</h1>
         <p className="text-slate-300 mb-2">Hello! please register with your credentials</p>
