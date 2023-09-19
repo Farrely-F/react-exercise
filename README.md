@@ -1,8 +1,39 @@
-# React + Vite
+# Fake Store React Exercise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hello coders! 👋 in this repo im thrilled to share my side project of mastering react especially react hooks and state management using redux.
 
-Currently, two official plugins are available:
+## Tech Stacks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [React Router V6](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [JsonBin](https://jsonbin.io/)
+- [Axios](https://axios-http.com/)
+- [Redux](https://redux.js.org/)
+
+## Run Locally
+
+```bash
+# Clone the repository
+git clone
+```
+
+```bash
+# Install dependencies
+npm install
+```
+
+```bash
+# Start development server
+npm run dev
+```
+
+## Features
+
+- Responsive Web Design
+- Modern UI Design
+- Cart Simulation
+- Auth Simulation

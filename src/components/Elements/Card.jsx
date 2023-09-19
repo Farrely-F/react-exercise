@@ -1,5 +1,7 @@
 import Button from "./Button";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 const Card = (props) => {
   const { children } = props;
@@ -35,11 +37,13 @@ const Body = (props) => {
 };
 
 const Footer = (props) => {
-  const { children, handleAddToCart, id } = props;
+  const { children, id } = props;
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="flex items-center justify-between">
-        <Button onClick={() => handleAddToCart(id)} style="text-xs flex gap-1 items-center">
+        <Button onClick={() => dispatch(addToCart({ id, quantity: 1 }))} style="text-xs flex gap-1 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
             <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z" fill="rgba(0,0,0,1)"></path>
           </svg>
@@ -73,6 +77,5 @@ Body.propTypes = {
 
 Footer.propTypes = {
   children: PropTypes.node,
-  handleAddToCart: PropTypes.func,
   id: PropTypes.number,
 };

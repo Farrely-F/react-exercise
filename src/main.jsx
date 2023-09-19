@@ -7,6 +7,8 @@ import { LoginPage } from "./pages/login.jsx";
 import { RegisterPage } from "./pages/register.jsx";
 import ErrorPage from "./pages/404.jsx";
 import Products from "./pages/products.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
 
 // Created Router Following Docs (Best Practice)
 
@@ -26,7 +28,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-900 to-black max-sm:overflow-x-hidden">
-      <RouterProvider router={router}></RouterProvider>
+      <Provider store={store}>
+        <RouterProvider router={router}></RouterProvider>
+      </Provider>
     </div>
   </React.StrictMode>
 );

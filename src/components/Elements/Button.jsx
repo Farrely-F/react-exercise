@@ -20,7 +20,7 @@ Button.defaultProps = {
 Button.propTypes = {
   hover: PropTypes.string,
   variant: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.node,
   style: PropTypes.string,
   onClick: PropTypes.func,
   type: PropTypes.string,

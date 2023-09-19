@@ -1,9 +1,29 @@
 import { Link } from "react-router-dom";
 import Button from "../Elements/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import TotalItems from "../Elements/TotalItems";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const nav = navRef.current;
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 0) {
+        nav.classList.add("bg-black/50", "border-b", "border-white/20", "backdrop-blur-sm");
+      } else {
+        nav.classList.remove("bg-black/50", "border-b", "border-white/20", "backdrop-blur-sm");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const isLogedIn = localStorage.getItem("email") && localStorage.getItem("password");
   const email = localStorage.getItem("email");
@@ -23,12 +43,13 @@ const Navbar = () => {
   const handleMenuClose = () => {
     const menu = document.getElementById("menu");
     menu.classList.add("left-full");
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="w-full h-16 flex justify-between items-center bg-black/50 border-b border-white/20 backdrop-blur-sm text-white px-8 md:px-16 fixed top-0 z-50">
-      <h2 className="font-bold text-lg">Shoezis</h2>
+    <nav ref={navRef} className="w-full h-16 flex justify-between items-center text-white px-8 md:px-16 fixed top-0 z-50 ">
+      <h2 className="font-bold text-lg">Runnerz</h2>
       <button onClick={handleMenu} className="sm:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
           <path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z" fill="rgba(255,255,255,1)"></path>
@@ -44,6 +65,7 @@ const Navbar = () => {
         <Link onClick={handleMenuClose} to="/products">
           Products
         </Link>
+        <TotalItems />
         {isLogedIn ? (
           <>
             <p>{email}</p>
